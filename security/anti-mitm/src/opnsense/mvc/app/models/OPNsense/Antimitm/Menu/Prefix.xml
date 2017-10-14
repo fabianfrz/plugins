@@ -1,0 +1,32 @@
+<form>
+  <field>
+    <id>prefix.enabled</id>
+    <label>Enable</label>
+    <type>checkbox</type>
+  </field>
+  <field>
+    <id>prefix.address</id>
+    <label>Network Address</label>
+    <type>text</type>
+  </field>
+  <field>
+    <id>prefix.flags_reserved</id>
+    <label>Flags Reserved</label>
+    <type>text</type>
+  </field>
+  <field>
+    <id>prefix.valid_time</id>
+    <label>Valid Time</label>
+    <type>text</type>
+  </field>
+  <field>
+    <id>prefix.reachable_timer</id>
+    <label>Reachable Timer</label>
+    <type>text</type>
+  </field>
+  <field>
+    <id>prefix.mtu</id>
+    <label>Preferred Time</label>
+    <type>text</type>
+  </field>
+</form>

@@ -1,0 +1,50 @@
+<form>
+  <field>
+    <id>general.enabled</id>
+    <label>Enable</label>
+    <type>checkbox</type>
+    <help>This will activate the onion router.</help>
+  </field>
+  <field>
+    <label>High Priority Actions</label>
+    <type> </type>
+  </field>
+  <field>
+    <id>general.high_priority_sendmail</id>
+    <label>Send Mail</label>
+    <type>checkbox</type>
+    <help>Send an E-Mail in case of an event.</help>
+  </field>
+  <field>
+    <id>general.high_priority_syslog</id>
+    <label>Syslog</label>
+    <type>checkbox</type>
+    <help>Log the event to syslog.</help>
+  </field>
+  <field>
+    <label>Low Priority Actions</label>
+    <type> </type>
+  </field>
+  <field>
+    <id>general.low_priority_sendmail</id>
+    <label>Send Mail</label>
+    <type>checkbox</type>
+    <help>Send an E-Mail in case of an event.</help>
+  </field>
+  <field>
+    <id>general.low_priority_syslog</id>
+    <label>Syslog</label>
+    <type>checkbox</type>
+    <help>Log the event to syslog.</help>
+  </field>
+  <field>
+    <label>Service Settings</label>
+    <type> </type>
+  </field>
+  <field>
+    <id>general.reverse_hostlookups</id>
+    <label>Reverse Hostlookups</label>
+    <type>checkbox</type>
+    <help>Get the hostname of the IP address.</help>
+  </field>
+</form>

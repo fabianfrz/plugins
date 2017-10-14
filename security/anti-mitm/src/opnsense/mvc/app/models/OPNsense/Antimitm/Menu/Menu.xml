@@ -1,5 +1,5 @@
 <menu>
   <Services>
-    <anti-mitm VisibleName="anti-mitm" cssClass="fa fa-bath fa-fw" url="/ui/antimitm/" />
+    <anti-mitm VisibleName="Anti MITM" cssClass="fa fa-shield fa-fw" url="/ui/antimitm/" />
   </Services>
 </menu>

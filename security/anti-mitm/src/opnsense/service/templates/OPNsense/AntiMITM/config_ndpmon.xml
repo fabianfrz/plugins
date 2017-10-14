@@ -1,0 +1,96 @@
+{% if False %}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE config_ndpmon SYSTEM "config_ndpmon.dtd">
+<?xml-stylesheet type="text/xsl" href="config.xsl" ?>
+<config_ndpmon>
+  <settings>
+    <!-- 
+    <actions_high_priority sendmail="1" syslog="1" exec_pipe_program="/usr/local/ndpmon/alerts_to_xml.py"/>
+    <actions_low_priority sendmail="1" syslog="1" exec_pipe_program="/usr/local/ndpmon/alerts_to_xml.py"/>
+    -->
+    <actions_high_priority sendmail="{{ OPNsense.anti_mitm.NDPMon.high_priority_sendmail|default "0" }}"
+                           syslog="{{ OPNsense.anti_mitm.NDPMon.high_priority_syslog|default "0" }}"
+                           exec_pipe_program=""/>
+    <actions_low_priority  sendmail="{{ OPNsense.anti_mitm.NDPMon.low_priority_sendmail|default "0" }}"
+                           syslog="{{ OPNsense.anti_mitm.NDPMon.low_priority_syslog|default "0" }}"
+                           exec_pipe_program=""/>
+    <admin_mail>{{ OPNsense.anti_mitm.NDPMon.admin_mail|default "root@localhost" }}</admin_mail>
+    <ignor_autoconf>{{ OPNsense.anti_mitm.NDPMon.ignore_autoconf|default "1" }}</ignor_autoconf>
+    <syslog_facility>LOG_LOCAL1</syslog_facility>
+    <use_reverse_hostlookups>{{ OPNsense.anti_mitm.NDPMon.reverse_hostlookups|default "0" }}</use_reverse_hostlookups>
+
+{% if False %}
+    <soap report_url="https://localhost:10002/ndpmon"
+          report_src="localhost"
+          listen_path="/ndpmon"
+          listen_port="10002"
+          ssl_enabled="1"
+          ssl_certfile="/usr/local/etc/ndpmon/sslkey.pem"
+          ssl_certpass="pass"
+          ssl_cafile="/usr/local/etc/ndpmon/ca/cacert.pem"
+          ssl_commonname="test" />
+{% endif %}
+
+  </settings>
+  <probes>
+  <!-- Example remote probe
+  <probe name="somehost/eth0" type="remote" />
+  -->
+  <probe name="eth0" type="interface">
+    <routers>
+      <!-- TODO fix for loop -->
+{%     for router in helpers.toList('OPNsense.anti_mitm.NDPMon.probe.routers') %}
+
+      <router>
+        <!-- router mac -->
+        <mac>{{ router.mac }}</mac>
+        <!-- link local address 1:2:3:4:5:6:7:8 -->
+        <lla>{{ router.lla }}</lla>
+{% if router.curhoplimit and router.curhoplimit != '' %}
+        <param_curhoplimit>{{ router.curhoplimit }}</param_curhoplimit>
+{% endif %}
+{% if router.flags_reserved and router.flags_reserved != '' %}
+        <param_flags_reserved>{{ router.flags_reserved }}</param_flags_reserved>
+{% endif %}
+{% if router.lifetime and router.lifetime != '' %}
+        <param_router_lifetime>{{ router.lifetime }}</param_router_lifetime>
+{% endif %}
+{% if router.reachable_timer and router.reachable_timer != '' %}
+        <param_reachable_timer>{{ router.reachable_timer }}</param_reachable_timer>
+{% endif %}
+{% if router.retrans_timer and router.retrans_timer != '' %}
+        <param_retrans_timer>{{ router.retrans_timer }}</param_retrans_timer>
+{% endif %}
+{% if router.mtu and router.mtu != '' %}
+        <param_mtu>{{ router.mtu }}</param_mtu>
+{% endif %}
+{% if router.volatile and router.volatile != '' %}
+        <params_volatile>{{ router.volatile }}</params_volatile>
+{% endif %}
+        <addresses/>
+        <prefixes>
+          <!-- TODO get the prefix list from system -->
+{%        for prefix in prefixes %}
+          <prefix>
+            <address>2001:db8:1234:5678::</address>
+            <mask>64</mask>
+            <param_flags_reserved>224</param_flags_reserved>
+            <param_valid_time>2592000</param_valid_time>
+            <param_preferred_time>604800</param_preferred_time>
+          </prefix>
+{%        endfor %}
+        </prefixes>
+      </router>
+{{%    endfor %}}
+    </routers>
+    <!-- Example Rules Configuration 
+    <rules>
+      <rule description="inet6.source is link local">
+        <match field="inet6.source" value="fe80::/10"/>
+      </rule>
+    </rules>
+    -->
+    </probe>
+  </probes>
+</config_ndpmon>
+{% endif %}

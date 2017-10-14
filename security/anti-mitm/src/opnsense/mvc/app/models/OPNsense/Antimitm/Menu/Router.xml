@@ -1,0 +1,39 @@
+<form>
+  <field>
+    <id>router.enabled</id>
+    <label>Enable</label>
+    <type>checkbox</type>
+    <help>This will activate the onion router.</help>
+  </field>
+  <field>
+    <id>router.curhoplimit</id>
+    <label>Current Hop Limit</label>
+    <type>text</type>
+  </field>
+  <field>
+    <id>router.flags_reserved</id>
+    <label>Flags Reserved</label>
+    <type>text</type>
+  </field>
+  <field>
+    <id>router.lifetime</id>
+    <label>Lifetime</label>
+    <type>text</type>
+    <help>Send an E-Mail in case of an event.</help>
+  </field>
+  <field>
+    <id>router.reachable_timer</id>
+    <label>Reachable Timer</label>
+    <type>text</type>
+  </field>
+  <field>
+    <id>router.mtu</id>
+    <label>MTU</label>
+    <type>text</type>
+  </field>
+  <field>
+    <id>router.volatile</id>
+    <label>Volatile</label>
+    <type>text</type>
+  </field>
+</form>

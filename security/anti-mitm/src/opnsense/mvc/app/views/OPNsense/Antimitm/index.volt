@@ -28,4 +28,18 @@
 #}
 
 
-This plugin has been created but no content exists.
+<ul class="nav nav-tabs" data-tabs="tabs" id="maintabs">
+    <li class="active"><a data-toggle="tab" href="#general">{{ lang._('General') }}</a></li>
+</ul>
+
+<div class="tab-content content-box tab-content" style="padding-bottom: 1.5em;">
+    <div id="general" class="tab-pane fade in active">
+        {{ partial("layout_partials/base_form",['fields': general,'id':'general'])}}
+        <div class="col-md-12">
+            <hr />
+            <button class="btn btn-primary" id="generalsaveAct" type="button"><b>{{ lang._('Save') }}</b> <i class="saveAct_progress"></i></button>
+        </div>
+    </div>
+</div>
+
+{{ partial("layout_partials/base_form",['fields': prefix,'id':'prefix'])}}

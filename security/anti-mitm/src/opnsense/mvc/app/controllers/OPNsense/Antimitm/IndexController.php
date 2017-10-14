@@ -29,7 +29,7 @@
 */
 
 
-namespace OPNsense/Antimitm;
+namespace OPNsense\Antimitm;
 
 /**
 * Class IndexController
@@ -39,7 +39,9 @@ class IndexController extends \OPNsense\Base\IndexController
 {
     public function indexAction()
     {
-        $this->view->title = gettext("anti-mitm");
+        $this->view->title = gettext("Anti MITM");
+        $this->view->general = $this->getForm("general");
+        $this->view->prefix = $this->getForm("prefix");
         $this->view->pick('OPNsense/Antimitm/index');
     }
 }
