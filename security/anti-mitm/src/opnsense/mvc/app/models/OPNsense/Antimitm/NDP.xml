@@ -83,6 +83,18 @@
         <default>1</default>
         <Required>Y</Required>
       </enabled>
+      <router type="ModelRelationField">
+        <Model>
+          <template>
+            <source>OPNsense.Antimitm.NDP</source>
+            <items>router</items>
+            <display>name</display>
+          </template>
+        </Model>
+        <ValidationMessage>An Onion service must be set.</ValidationMessage>
+        <Multiple>N</Multiple>
+        <Required>Y</Required>
+      </router>
       <address type="NetworkField">
         <default>2001:db8:1234:5678::</default>
         <Required>Y</Required>

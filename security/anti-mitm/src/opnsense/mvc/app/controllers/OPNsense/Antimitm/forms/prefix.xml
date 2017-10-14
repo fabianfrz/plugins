@@ -5,6 +5,11 @@
     <type>checkbox</type>
   </field>
   <field>
+    <id>prefix.router</id>
+    <label>Router</label>
+    <type>dropdown</type>
+  </field>
+  <field>
     <id>prefix.address</id>
     <label>Network Address</label>
     <type>text</type>

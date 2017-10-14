@@ -85,7 +85,7 @@ $( document ).ready(function() {
     $("#grid-prefixes").UIBootgrid(
         { 'search':'/api/antimitm/ndp/searchprefix',
           'get':'/api/antimitm/ndp/getprefix/',
-          'set':'/api/antimitm/ndp/setsetprefix/',
+          'set':'/api/antimitm/ndp/setprefix/',
           'add':'/api/antimitm/ndp/addprefix/',
           'del':'/api/antimitm/ndp/delprefix/',
           'toggle':'/api/antimitm/ndp/toggleprefix/',
