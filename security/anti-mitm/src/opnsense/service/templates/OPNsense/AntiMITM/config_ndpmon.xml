@@ -70,7 +70,7 @@
         <addresses/>
         <prefixes>
           <!-- TODO get the prefix list from system -->
-{%        for prefix in helpers.toList('OPNsense.anti_mitm.NDPMon.prefixes.prefix') %}
+{%        for prefix in helpers.toList('OPNsense.anti_mitm.NDPMon.prefix') %}
           <prefix>
             <address>{{ prefix.address }}</address>
             <mask>{{ prefix.mask}}</mask>
