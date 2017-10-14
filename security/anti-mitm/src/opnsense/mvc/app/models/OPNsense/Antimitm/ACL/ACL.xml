@@ -1,0 +1,9 @@
+<acl>
+  <page-Antimitm>
+    <name>anti-mitm</name>
+    <patterns>
+      <pattern>ui/antimitm/*</pattern>
+      <pattern>api/antimitm/*</pattern>
+    </patterns>
+  </page-Antimitm>
+</acl>

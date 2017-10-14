@@ -1,0 +1,5 @@
+<menu>
+  <Services>
+    <anti-mitm VisibleName="anti-mitm" cssClass="fa fa-bath fa-fw" url="/ui/antimitm/" />
+  </Services>
+</menu>
