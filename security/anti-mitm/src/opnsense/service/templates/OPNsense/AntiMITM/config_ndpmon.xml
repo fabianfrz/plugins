@@ -8,16 +8,16 @@
     <actions_high_priority sendmail="1" syslog="1" exec_pipe_program="/usr/local/ndpmon/alerts_to_xml.py"/>
     <actions_low_priority sendmail="1" syslog="1" exec_pipe_program="/usr/local/ndpmon/alerts_to_xml.py"/>
     -->
-    <actions_high_priority sendmail="{{ OPNsense.anti_mitm.NDPMon.high_priority_sendmail|default "0" }}"
-                           syslog="{{ OPNsense.anti_mitm.NDPMon.high_priority_syslog|default "0" }}"
+    <actions_high_priority sendmail="{{ OPNsense.anti_mitm.NDPMon.high_priority_sendmail|default("0") }}"
+                           syslog="{{ OPNsense.anti_mitm.NDPMon.high_priority_syslog|default("0") }}"
                            exec_pipe_program=""/>
-    <actions_low_priority  sendmail="{{ OPNsense.anti_mitm.NDPMon.low_priority_sendmail|default "0" }}"
-                           syslog="{{ OPNsense.anti_mitm.NDPMon.low_priority_syslog|default "0" }}"
+    <actions_low_priority  sendmail="{{ OPNsense.anti_mitm.NDPMon.low_priority_sendmail|default("0") }}"
+                           syslog="{{ OPNsense.anti_mitm.NDPMon.low_priority_syslog|default("0") }}"
                            exec_pipe_program=""/>
-    <admin_mail>{{ OPNsense.anti_mitm.NDPMon.admin_mail|default "root@localhost" }}</admin_mail>
-    <ignor_autoconf>{{ OPNsense.anti_mitm.NDPMon.ignore_autoconf|default "1" }}</ignor_autoconf>
+    <admin_mail>{{ OPNsense.anti_mitm.NDPMon.admin_mail|default("root@localhost") }}</admin_mail>
+    <ignor_autoconf>{{ OPNsense.anti_mitm.NDPMon.ignore_autoconf|default("1") }}</ignor_autoconf>
     <syslog_facility>LOG_LOCAL1</syslog_facility>
-    <use_reverse_hostlookups>{{ OPNsense.anti_mitm.NDPMon.reverse_hostlookups|default "0" }}</use_reverse_hostlookups>
+    <use_reverse_hostlookups>{{ OPNsense.anti_mitm.NDPMon.reverse_hostlookups|default("0") }}</use_reverse_hostlookups>
 
 {% if False %}
     <soap report_url="https://localhost:10002/ndpmon"
@@ -39,7 +39,7 @@
   <probe name="eth0" type="interface">
     <routers>
       <!-- TODO fix for loop -->
-{%     for router in helpers.toList('OPNsense.anti_mitm.NDPMon.router.router') %}
+{%     for router in helpers.toList('OPNsense.anti_mitm.NDPMon.router') %}
 
       <router>
         <!-- router mac -->
@@ -87,7 +87,7 @@
 {%        endfor %}
         </prefixes>
       </router>
-{{%    endfor %}}
+{%    endfor %}
     </routers>
     <!-- Example Rules Configuration 
     <rules>

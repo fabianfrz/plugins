@@ -42,6 +42,15 @@
       <name type="TextField">
         <Required>N</Required>
       </name>
+      <lla type="NetworkField">
+        <default>2001:db8:1234:5678::</default>
+        <Required>Y</Required>
+      </lla>
+      <mac type="TextField">
+        <default>11:22:33:44:55:66</default>
+        <Required>Y</Required>
+        <mask>/^[0-9a-f]{2,2}:[0-9a-f]{2,2}:[0-9a-f]{2,2}:[0-9a-f]{2,2}:[0-9a-f]{2,2}:[0-9a-f]{2,2}$/i</mask>
+      </mac>
       <curhoplimit type="IntegerField">
         <default>64</default>
         <MinimumValue>1</MinimumValue>

@@ -10,6 +10,16 @@
     <type>text</type>
   </field>
   <field>
+    <id>router.mac</id>
+    <label>MAC</label>
+    <type>text</type>
+  </field>
+  <field>
+    <id>router.lla</id>
+    <label>Link Local Address</label>
+    <type>text</type>
+  </field>
+  <field>
     <id>router.curhoplimit</id>
     <label>Current Hop Limit</label>
     <type>text</type>
