@@ -1,5 +1,5 @@
 <?php
-namespace OPNsense\Tor;
+namespace OPNsense\Antimitm;
 
 use OPNsense\Base\BaseModel;
 
@@ -29,6 +29,6 @@ use OPNsense\Base\BaseModel;
     POSSIBILITY OF SUCH DAMAGE.
 */
 
-class General extends BaseModel
+class NDP extends BaseModel
 {
 }

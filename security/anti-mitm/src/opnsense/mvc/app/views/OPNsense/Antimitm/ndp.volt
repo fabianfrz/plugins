@@ -44,7 +44,7 @@ function reload_handler() {
 
 $( document ).ready(function() {
     var data_get_map = {
-        'general': '/api/antimitm/general/get'
+        'general': '/api/antimitm/ndp/get'
     };
     mapDataToFormUI(data_get_map).done(function(data){
         formatTokenizersUI();
@@ -73,23 +73,23 @@ $( document ).ready(function() {
     $('.reload_btn').click(reload_handler);
 
     $("#grid-router").UIBootgrid(
-        { 'search':'/api/antimitm/searchrouter',
-          'get':'/api/antimitm/getrouter/',
-          'set':'/api/antimitm/setrouter/',
-          'add':'/api/antimitm/addrouter/',
-          'del':'/api/antimitm/delrouter/',
-          'toggle':'/api/antimitm/togglerouter/',
+        { 'search':'/api/antimitm/ndp/searchrouter',
+          'get':'/api/antimitm/ndp/getrouter/',
+          'set':'/api/antimitm/ndp/setrouter/',
+          'add':'/api/antimitm/ndp/addrouter/',
+          'del':'/api/antimitm/ndp/delrouter/',
+          'toggle':'/api/antimitm/ndp/togglerouter/',
           'options':{selection:false, multiSelect:false}
         }
     );
     
     $("#grid-prefixes").UIBootgrid(
-        { 'search':'/api/tor/antimitm/searchprefix',
-          'get':'/api/tor/antimitm/getprefix/',
-          'set':'/api/tor/antimitm/setsetprefix/',
-          'add':'/api/tor/antimitm/addprefix/',
-          'del':'/api/tor/antimitm/delprefix/',
-          'toggle':'/api/tor/antimitm/toggleprefix/',
+        { 'search':'/api/antimitm/ndp/searchprefix',
+          'get':'/api/antimitm/ndp/getprefix/',
+          'set':'/api/antimitm/ndp/setsetprefix/',
+          'add':'/api/antimitm/ndp/addprefix/',
+          'del':'/api/antimitm/ndp/delprefix/',
+          'toggle':'/api/antimitm/ndp/toggleprefix/',
           'options':{selection:false, multiSelect:false}
         }
     );
@@ -117,7 +117,7 @@ $( document ).ready(function() {
           <thead>
               <tr>
                   <th data-column-id="enabled" data-type="string" data-formatter="rowtoggle">{{ lang._('Enabled') }}</th>
-                  <th data-column-id="action" data-type="string" data-visible="true">{{ lang._('Name') }}</th>
+                  <th data-column-id="name" data-type="string" data-visible="true">{{ lang._('Name') }}</th>
                   <th data-column-id="uuid" data-type="string" data-identifier="true" data-visible="false">{{ lang._('ID') }}</th>
                   <th data-column-id="commands" data-formatter="commands" data-sortable="false">{{ lang._('Commands') }}</th>
               </tr>
@@ -142,7 +142,8 @@ $( document ).ready(function() {
           <thead>
               <tr>
                   <th data-column-id="enabled" data-type="string" data-formatter="rowtoggle">{{ lang._('Enabled') }}</th>
-                  <th data-column-id="action" data-type="string" data-visible="true">{{ lang._('Name') }}</th>
+                  <th data-column-id="address" data-type="string" data-visible="true">{{ lang._('Network Address') }}</th>
+                  <th data-column-id="mask" data-type="string" data-visible="true">{{ lang._('Network Mask') }}</th>
                   <th data-column-id="uuid" data-type="string" data-identifier="true" data-visible="false">{{ lang._('ID') }}</th>
                   <th data-column-id="commands" data-formatter="commands" data-sortable="false">{{ lang._('Commands') }}</th>
               </tr>
@@ -151,7 +152,7 @@ $( document ).ready(function() {
           </tbody>
           <tfoot>
               <tr>
-                  <td colspan="3"></td>
+                  <td colspan="4"></td>
                   <td>
                       <button data-action="add" type="button" class="btn btn-xs btn-default"><span class="fa fa-plus"></span></button>
                       <!-- <button data-action="deleteSelected" type="button" class="btn btn-xs btn-default"><span class="fa fa-trash-o"></span></button> -->

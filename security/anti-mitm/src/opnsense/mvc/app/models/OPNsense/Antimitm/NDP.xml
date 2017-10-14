@@ -69,31 +69,31 @@
     </router>
 
     <!-- Prefixes -->
-    <prefixes type="ArrayField">
+    <prefix type="ArrayField">
       <enabled type="BooleanField">
         <default>0</default>
         <Required>Y</Required>
       </enabled>
       <address type="NetworkField">
-        <default>192.168.1.0</default>
+        <default>2001:db8:1234:5678::</default>
         <Required>Y</Required>
       </address>
       <mask type="IntegerField">
-        <default>24</default>
+        <default>64</default>
         <Required>Y</Required>
       </mask>
       <flags_reserved type="IntegerField">
+        <default>224</default>
         <Required>N</Required>
       </flags_reserved>
       <valid_time type="IntegerField">
+        <default>2592000</default>
         <Required>N</Required>
       </valid_time>
-      <reachable_timer type="IntegerField">
+      <preferred_time type="IntegerField">
+        <default>604800</default>
         <Required>N</Required>
-      </reachable_timer>
-      <mtu type="IntegerField">
-        <Required>N</Required>
-      </mtu>
-    </prefixes>
+      </preferred_time>
+    </prefix>
   </items>
 </model>
