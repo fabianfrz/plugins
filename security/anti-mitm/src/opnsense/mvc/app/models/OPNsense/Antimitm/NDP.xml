@@ -12,7 +12,7 @@
       <Required>Y</Required>
     </high_priority_sendmail>
     <high_priority_syslog type="BooleanField">
-      <default>0</default>
+      <default>1</default>
       <Required>Y</Required>
     </high_priority_syslog>
     <low_priority_sendmail type="BooleanField">
@@ -20,7 +20,7 @@
       <Required>Y</Required>
     </low_priority_sendmail>
     <low_priority_syslog type="BooleanField">
-      <default>0</default>
+      <default>1</default>
       <Required>Y</Required>
     </low_priority_syslog>
     <admin_mail type="TextField">
@@ -36,7 +36,7 @@
     <!-- Router -->
     <router type="ArrayField">
       <enabled type="BooleanField">
-        <default>0</default>
+        <default>1</default>
         <Required>Y</Required>
       </enabled>
       <name type="TextField">
@@ -71,7 +71,7 @@
     <!-- Prefixes -->
     <prefix type="ArrayField">
       <enabled type="BooleanField">
-        <default>0</default>
+        <default>1</default>
         <Required>Y</Required>
       </enabled>
       <address type="NetworkField">

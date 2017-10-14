@@ -53,13 +53,12 @@ $( document ).ready(function() {
 
     // link save button to API set action
     [
-      {'selector': '#generalsaveAct', 'endpoint': '/api/tor/general/set', 'formid': 'general'},
-      {'selector': '#relaysaveAct', 'endpoint': '/api/tor/relay/set', 'formid': 'relay'}
+      {'selector': '#generalsaveAct', 'endpoint': '/api/antimitm/ndp/set', 'formid': 'general'}
     ].forEach(function (cfg) {
         $(cfg.selector).click(function(){
             saveFormToEndpoint(url=cfg.endpoint, formid=cfg.formid,callback_ok=function(){
                 $(cfg.selector + " .saveAct_progress").addClass("fa fa-spinner fa-pulse");
-                ajaxCall(url="/api/tor/service/reconfigure", sendData={}, callback=function(data,status) {
+                ajaxCall(url="/api/antimitm/service/reconfigure", sendData={}, callback=function(data,status) {
                     ndp_update_status();
                     $(cfg.selector + " .saveAct_progress").removeClass("fa fa-spinner fa-pulse");
                 });

@@ -1,4 +1,4 @@
-{% if False %}
+{% if helpers.exists('OPNsense.anti_mitm.NDPMon.enabled') and OPNsense.anti_mitm.NDPMon.enabled == '1' %}
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE config_ndpmon SYSTEM "config_ndpmon.dtd">
 <?xml-stylesheet type="text/xsl" href="config.xsl" ?>

@@ -1,5 +1,7 @@
 <menu>
   <Services>
-    <anti-mitm VisibleName="Anti MITM" cssClass="fa fa-shield fa-fw" url="/ui/antimitm/" />
+    <anti-mitm VisibleName="Anti MITM" cssClass="fa fa-shield fa-fw">
+      <ndp VisibleName="NDP Monitoring" url="/ui/antimitm/index/ndp" />
+    </anti-mitm>
   </Services>
 </menu>
