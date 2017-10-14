@@ -3,7 +3,6 @@
     <id>general.enabled</id>
     <label>Enable</label>
     <type>checkbox</type>
-    <help>This will activate the onion router.</help>
   </field>
   <field>
     <label>High Priority Actions</label>

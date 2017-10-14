@@ -10,6 +10,11 @@
     <type>text</type>
   </field>
   <field>
+    <id>prefix.mask</id>
+    <label>Network Mask</label>
+    <type>text</type>
+  </field>
+  <field>
     <id>prefix.flags_reserved</id>
     <label>Flags Reserved</label>
     <type>text</type>
@@ -20,13 +25,8 @@
     <type>text</type>
   </field>
   <field>
-    <id>prefix.reachable_timer</id>
+    <id>prefix.preferred_time</id>
     <label>Reachable Timer</label>
-    <type>text</type>
-  </field>
-  <field>
-    <id>prefix.mtu</id>
-    <label>Preferred Time</label>
     <type>text</type>
   </field>
 </form>

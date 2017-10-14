@@ -1,0 +1,99 @@
+<model>
+  <mount>//OPNsense/anti_mitm/NDPMon</mount>
+  <description>NDP Monitor configuration</description>
+  <items>
+    <!-- General settings -->
+    <enabled type="BooleanField">
+      <default>0</default>
+      <Required>Y</Required>
+    </enabled>
+    <high_priority_sendmail type="BooleanField">
+      <default>0</default>
+      <Required>Y</Required>
+    </high_priority_sendmail>
+    <high_priority_syslog type="BooleanField">
+      <default>0</default>
+      <Required>Y</Required>
+    </high_priority_syslog>
+    <low_priority_sendmail type="BooleanField">
+      <default>0</default>
+      <Required>Y</Required>
+    </low_priority_sendmail>
+    <low_priority_syslog type="BooleanField">
+      <default>0</default>
+      <Required>Y</Required>
+    </low_priority_syslog>
+    <admin_mail type="TextField">
+      <Required>Y</Required>
+      <default>root@localhost</default>
+      <mask>/^.*@.*$/</mask>
+    </admin_mail>
+    <reverse_hostlookups type="BooleanField">
+      <default>0</default>
+      <Required>Y</Required>
+    </reverse_hostlookups>
+    
+    <!-- Router -->
+    <router type="ArrayField">
+      <enabled type="BooleanField">
+        <default>0</default>
+        <Required>Y</Required>
+      </enabled>
+      <name type="TextField">
+        <Required>N</Required>
+      </name>
+      <curhoplimit type="IntegerField">
+        <default>64</default>
+        <MinimumValue>1</MinimumValue>
+        <Required>N</Required>
+        <MaximumValue>255</MaximumValue>
+      </curhoplimit>
+      <flags_reserved type="IntegerField">
+        <default>64</default>
+        <MinimumValue>0</MinimumValue>
+        <Required>N</Required>
+        <MaximumValue>255</MaximumValue>
+      </flags_reserved>
+      <lifetime type="IntegerField">
+        <Required>N</Required>
+      </lifetime>
+      <reachable_timer type="IntegerField">
+        <Required>N</Required>
+      </reachable_timer>
+      <mtu type="IntegerField">
+        <Required>N</Required>
+      </mtu>
+      <volatile type="IntegerField">
+        <Required>N</Required>
+      </volatile>
+    </router>
+
+    <!-- Prefixes -->
+    <prefixes type="ArrayField">
+      <enabled type="BooleanField">
+        <default>0</default>
+        <Required>Y</Required>
+      </enabled>
+      <address type="NetworkField">
+        <default>192.168.1.0</default>
+        <Required>Y</Required>
+      </address>
+      <mask type="IntegerField">
+        <default>24</default>
+        <Required>Y</Required>
+      </mask>
+      <flags_reserved type="IntegerField">
+        <Required>N</Required>
+      </flags_reserved>
+      <valid_time type="IntegerField">
+        <Required>N</Required>
+      </valid_time>
+      <reachable_timer type="IntegerField">
+        <Required>N</Required>
+      </reachable_timer>
+      <mtu type="IntegerField">
+        <Required>N</Required>
+      </mtu>
+    </prefixes>
+  </items>
+</model>

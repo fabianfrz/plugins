@@ -39,7 +39,7 @@
   <probe name="eth0" type="interface">
     <routers>
       <!-- TODO fix for loop -->
-{%     for router in helpers.toList('OPNsense.anti_mitm.NDPMon.probe.routers') %}
+{%     for router in helpers.toList('OPNsense.anti_mitm.NDPMon.router.router') %}
 
       <router>
         <!-- router mac -->
@@ -70,13 +70,19 @@
         <addresses/>
         <prefixes>
           <!-- TODO get the prefix list from system -->
-{%        for prefix in prefixes %}
+{%        for prefix in helpers.toList('OPNsense.anti_mitm.NDPMon.prefixes.prefix') %}
           <prefix>
-            <address>2001:db8:1234:5678::</address>
-            <mask>64</mask>
-            <param_flags_reserved>224</param_flags_reserved>
-            <param_valid_time>2592000</param_valid_time>
-            <param_preferred_time>604800</param_preferred_time>
+            <address>{{ prefix.address }}</address>
+            <mask>{{ prefix.mask}}</mask>
+{% if prefix.flags_reserved and prefix.flags_reserved != '' %}
+            <param_flags_reserved>{{ prefix.flags_reserved }}</param_flags_reserved>
+{% endif %}
+{% if prefix.valid_time and prefix.valid_time != '' %}
+            <param_valid_time>{{ prefix.valid_time }}</param_valid_time>
+{% endif %}
+{% if prefix.preferred_time and prefix.preferred_time != '' %}
+            <param_preferred_time>{{ prefix.preferred_time }}</param_preferred_time>
+{% endif %}
           </prefix>
 {%        endfor %}
         </prefixes>

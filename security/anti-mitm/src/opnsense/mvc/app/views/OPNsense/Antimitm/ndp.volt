@@ -29,14 +29,14 @@
 <script type="text/javascript">
 
 function ndp_update_status() {
-    ajaxCall(url="/api/tor/service/status", sendData={}, callback=function(data,status) {
+    ajaxCall(url="/api/antimitm/service/ndpstatus", sendData={}, callback=function(data,status) {
         updateServiceStatusUI(data['status']);
     });
 }
 
 function reload_handler() {
     $(".reloadAct_progress").addClass("fa-spin");
-    ajaxCall(url="/api/tor/service/reconfigure", sendData={}, callback=function(data,status) {
+    ajaxCall(url="/api/antimitm/service/reconfigure", sendData={}, callback=function(data,status) {
         ndp_update_status();
         $(".reloadAct_progress").removeClass("fa-spin");
     });
@@ -73,12 +73,12 @@ $( document ).ready(function() {
     $('.reload_btn').click(reload_handler);
 
     $("#grid-router").UIBootgrid(
-        { 'search':'/api/tor/antimitm/searchrouter',
-          'get':'/api/tor/antimitm/getrouter/',
-          'set':'/api/tor/antimitm/setrouter/',
-          'add':'/api/tor/antimitm/addrouter/',
-          'del':'/api/tor/antimitm/delrouter/',
-          'toggle':'/api/tor/antimitm/togglerouter/',
+        { 'search':'/api/antimitm/searchrouter',
+          'get':'/api/antimitm/getrouter/',
+          'set':'/api/antimitm/setrouter/',
+          'add':'/api/antimitm/addrouter/',
+          'del':'/api/antimitm/delrouter/',
+          'toggle':'/api/antimitm/togglerouter/',
           'options':{selection:false, multiSelect:false}
         }
     );
