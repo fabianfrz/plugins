@@ -37,11 +37,12 @@ namespace OPNsense\Antimitm;
 */
 class IndexController extends \OPNsense\Base\IndexController
 {
-    public function indexAction()
+    public function ndpAction()
     {
-        $this->view->title = gettext("Anti MITM");
+        $this->view->title = gettext("Anti MITM: NDP");
         $this->view->general = $this->getForm("general");
         $this->view->prefix = $this->getForm("prefix");
-        $this->view->pick('OPNsense/Antimitm/index');
+        $this->view->router = $this->getForm("router");
+        $this->view->pick('OPNsense/Antimitm/ndp');
     }
 }

@@ -3,7 +3,11 @@
     <id>router.enabled</id>
     <label>Enable</label>
     <type>checkbox</type>
-    <help>This will activate the onion router.</help>
+  </field>
+  <field>
+    <id>router.name</id>
+    <label>Name</label>
+    <type>text</type>
   </field>
   <field>
     <id>router.curhoplimit</id>
